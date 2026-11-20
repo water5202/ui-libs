@@ -1,4 +1,4 @@
-local Arcane = loadstring(game:HttpGet(""))()
+local Arcane = loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/ui-libs/refs/heads/main/Arcane/Arcane.lua"))()
 
 local Window = Arcane:Window({
     Name = "ARCANE",
