@@ -1,7 +1,7 @@
 --!nocheck
 -- Example: rebuilds the reference layout. Load the library however you host it:
 
-local Pink = ... or (getgenv and getgenv().Pink) or Pink
+local Pink = loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/ui-libs/refs/heads/main/Pink/Pink.lua"))()
 
 local Window = Pink:Window({
 	Name = "Pink",
