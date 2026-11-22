@@ -473,15 +473,8 @@ local function Highlight(Parent, BaseKey, Position, Size)
     Themed(function()
         Gradient.Color = AccentSequence((Theme[BaseKey] or Theme.Background):Lerp(Color3.new(0, 0, 0), 0.2))
     end)
-    TweenService:Create(Line, TweenInfo.new(
-        1.4,
-        Enum.EasingStyle.Linear,
-        Enum.EasingDirection.In,
-        -1,
-        false,
-        0
-    ), { Position = UDim2.new(-1, 0, 0, 0) }):Play()
-
+    Gradient.Offset = Vector2.new(-1, 0)
+    TweenService:Create(Gradient, TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, -1, false), { Offset = Vector2.new(1, 0) }):Play()
     return Line
 end
 
@@ -4139,5 +4132,13 @@ end
 --#endregion
 
 getgenv().VergilLibrary = Library
+local Window = Library:Window({
+    Name = 'waterware | build v0.1',
+    Rank = "developer",
+})
 
+Window:Watermark({ Name = "waterware.cc", SubName = "build: v0.1" })
+Window:KeybindList({ Name = 'hotkeys' })
+
+Window:InitWindow()
 return Library
