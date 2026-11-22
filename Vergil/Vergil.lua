@@ -473,6 +473,14 @@ local function Highlight(Parent, BaseKey, Position, Size)
     Themed(function()
         Gradient.Color = AccentSequence((Theme[BaseKey] or Theme.Background):Lerp(Color3.new(0, 0, 0), 0.2))
     end)
+    TweenService:Create(Line, TweenInfo.new(
+        1.4,
+        Enum.EasingStyle.Linear,
+        Enum.EasingDirection.In,
+        -1,
+        false,
+        0
+    ), { Position = UDim2.new(-1, 0, 0, 0) }):Play()
 
     return Line
 end
