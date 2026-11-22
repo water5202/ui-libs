@@ -77,7 +77,6 @@ Library = {
     PopupHolder = nil,
     DragHolder = nil,
 }
-
 Library.__index = Library
 
 local Flags = Library.Flags
@@ -474,14 +473,13 @@ local function Highlight(Parent, BaseKey, Position, Size)
     Themed(function()
         Gradient.Color = AccentSequence((Theme[BaseKey] or Theme.Background):Lerp(Color3.new(0, 0, 0), 0.2))
     end)
-    scrollAccent(Gradient)
+
     return Line
 end
 
 local function TitleGradient(Label, Rotation)
     local Gradient = New("UIGradient", { Parent = Label, Rotation = Rotation or 0 })
     Themed(function() Gradient.Color = AccentSequence(Color3.new(1, 1, 1)) end)
-    scrollAccent(Gradient)
     return Gradient
 end
 
