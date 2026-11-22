@@ -502,6 +502,11 @@ local function MainGradient(Label)
             ColorSequenceKeypoint.new(1, Theme.Accent),
         }
     end)
+    TweenService:Create(
+        Gradient,
+        TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1, true),
+        { Offset = Vector2.new(1, 0) }
+    ):Play()
     return Gradient
 end
 
