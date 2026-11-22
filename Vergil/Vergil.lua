@@ -78,10 +78,6 @@ Library = {
     DragHolder = nil,
 }
 
-local AccentScroll = {
-    Enabled = true,
-    Speed = 1.6,   -- seconds for one full pass
-}
 Library.__index = Library
 
 local Flags = Library.Flags
@@ -125,22 +121,6 @@ end
 
 local function Wrap(Object)
     return { Instance = Object }
-end
-
-
-local function scrollAccent(Gradient)
-    if not AccentScroll.Enabled then
-        return
-    end
-
-    TweenService:Create(Gradient, TweenInfo.new(
-        AccentScroll.Speed,
-        Enum.EasingStyle.Linear,
-        Enum.EasingDirection.Out,
-        -1,
-        false,
-        0
-    ), { Offset = Vector2.new(-0.5, 0) }):Play()
 end
 
 local function Connect(Signal, Callback)
