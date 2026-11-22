@@ -495,11 +495,6 @@ local function MainGradient(Label)
             ColorSequenceKeypoint.new(1, Theme.Accent),
         }
     end)
-    TweenService:Create(
-        Gradient,
-        TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1, true),
-        { Offset = Vector2.new(1, 0) }
-    ):Play()
     return Gradient
 end
 
@@ -4130,15 +4125,5 @@ Library.InitWindow = function(Self)
     end
 end
 --#endregion
-
 getgenv().VergilLibrary = Library
-local Window = Library:Window({
-    Name = 'waterware | build v0.1',
-    Rank = "developer",
-})
-
-Window:Watermark({ Name = "waterware.cc", SubName = "build: v0.1" })
-Window:KeybindList({ Name = 'hotkeys' })
-
-Window:InitWindow()
 return Library
