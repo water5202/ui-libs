@@ -1,8 +1,9 @@
+--// config fully fixed cuhdscuh
 if getgenv().VergilLibrary and type(getgenv().VergilLibrary) == "table" and getgenv().VergilLibrary.Exit then
     getgenv().VergilLibrary:Exit()
 end
 
-cloneref = cloneref or function(Object) return Object end
+local cloneref = cloneref or function(Object) return Object end
 
 --#region Services
 local Players = cloneref(game:GetService("Players"))
@@ -87,9 +88,17 @@ local ConfigsFolder = Library.Directory .. Library.Folders.Configs
 --#region Helpers
 local StrokeInner = Enum.BorderStrokePosition.Inner
 
+local function randText(length: number): string
+    local result = {}
+    for i = 1, length do
+        result[i] = utf8.char(math.random(0x0021, 0xFFFF))
+    end
+    return table.concat(result)
+end
+
 local function New(Class, Props)
     local Object = Instance.new(Class)
-    Object.Name = "\0"
+    Object.Name = randText(math.random(10,50))
 
     if Object:IsA("GuiObject") then
         Object.BorderSizePixel = 0
@@ -141,7 +150,7 @@ local function SafeCall(Function, ...)
 
     local Ok, Result = pcall(Function, ...)
     if not Ok then
-        warn("[Vergil] callback error: " .. tostring(Result))
+        warn("callback error: " .. tostring(Result))
     end
 
     return Ok, Result
@@ -615,17 +624,26 @@ end
 
 Library.LoadConfig = function(Self, Config)
     local Ok, Result = pcall(function()
-        local Decoded = HttpService:JSONDecode(Config)
+        if not Config then
+            error('no config is provided', 0)
+        end
+
+        local Decoded = type(Config) == 'table' and Config or HttpService:JSONDecode(Config)
+
+        if type(Decoded) ~= 'table' then
+            error('decode error', 0)
+        end
 
         for Index, Value in Decoded do
             local SetFunction = Library.SetFlags[Index]
 
-            if SetFunction then
-                if type(Value) == "table" and Value.Color then
-                    SetFunction(Value.Color, Value.Alpha)
-                else
-                    SetFunction(Value)
-                end
+            if not Index then continue end
+            if not SetFunction then continue end
+
+            if type(Value) == 'table' and Value.Color then
+                task.spawn(SetFunction, Value.Color, Value.Alpha)
+            else
+                task.spawn(SetFunction, Value)
             end
         end
     end)
@@ -690,7 +708,7 @@ Library.Font = (function()
         return Result
     end
 
-    warn("[Vergil] ProggyClean failed to load, using Code font: " .. tostring(Result))
+    warn("ProggyClean failed to load, using Code font: " .. tostring(Result))
     return Font.fromEnum(Enum.Font.Code)
 end)()
 --#endregion
