@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/14273l/Vergil-poopy/refs/heads/main/Library"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/ui-libs/refs/heads/main/Vergil/Vergil.lua"))()
 
 local Window = Library:Window({
     Name = 'myscript | user | lifetime',
