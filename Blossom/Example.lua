@@ -1,5 +1,5 @@
 -- Demo layout matching the reference. Controls are labels only: wire your own Callback functions.
-local Blossom = ...
+local Blossom = loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/ui-libs/refs/heads/main/Blossom/Library.lua"))()
 if not Blossom then
 	if script and script.Parent and script.Parent:FindFirstChild("Blossom") then
 		Blossom = require(script.Parent.Blossom)
