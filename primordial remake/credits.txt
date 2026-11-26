@@ -1,3 +1,4 @@
 --credits so I don't forget
 --https://v3rmillion.net/threads/open-source-primordial-ui-library-remake.1063251/
 -- this one is very broken don't expect me to fix it since it doesn't look all that good
+-- run ui with source ->getgenv().library->no need to loadstring and has all variables-> return library
