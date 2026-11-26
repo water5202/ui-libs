@@ -1,5 +1,5 @@
 -- ex made by claude
-local lib = loadstring(game:HttpGet("url"))();
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/ui-libs/refs/heads/main/millionware/millionware.lua"))();
 
 local Window = lib:win('Example', {
 	title = 'discord.gg/robloxuis';
