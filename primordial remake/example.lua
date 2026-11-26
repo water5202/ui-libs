@@ -1,5 +1,4 @@
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/ui-libs/refs/heads/main/primordial%20remake/primordialsigma.lua"))()
-
+-- ur source above
 local ui=library:createwindow({Title="primordial",ToggleKey=Enum.KeyCode.RightShift})
 local rage=ui:addtab("Rage","rage")
 local legit=ui:addtab("Legit","legit")
@@ -225,3 +224,4 @@ if autoload then
         if ok then library:notify("Autoloaded: "..autoload,2) end
     end)
 end
+-- return library
