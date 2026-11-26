@@ -1,1 +1,1 @@
-mirror for roblox ui libs, request via issue
+A mirror for roblox UI Libraries. Request via issue
