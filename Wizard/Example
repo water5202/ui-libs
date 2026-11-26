@@ -1,5 +1,5 @@
 
-local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/ui-libs/refs/heads/main/Wizard/source.lua"))()
 
 local PhantomForcesWindow = Library:NewWindow("Combat")
 
